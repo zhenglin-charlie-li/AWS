@@ -31,7 +31,7 @@ Example Format:
 
 # Architecture
 
-![Snipaste_2023-10-16_09-58-47.png](Picutre.png)
+![Snipaste_2023-10-16_09-58-47.png](doc/Picutre.png)
 
 # Detailed design documentation
 
@@ -61,9 +61,9 @@ In the json response, users are able to extract the 2d array shadow matrix.
 
 In the `demo.ipynb`, I visualize the shadow matrix effectively.
 
-![img.png](img.png)
+![img.png](doc/img.png)
 
-![img_1.png](img_1.png)
+![img_1.png](doc/img_1.png)
 
 4. Validation
 
