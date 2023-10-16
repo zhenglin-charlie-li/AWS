@@ -43,7 +43,13 @@ The response to the API call is a JSON file in the following format:
 }
 ```
 
-# Architecture
+## Features
+- High performance, each request are expected to get a response in 10s
+- Logging support, logs can be found in `log.log` file
+- Cloud support, all servers running on AWS and database running on MongoDB Atlas
+- Code style, high quality code style
+
+## Architecture
 
 ![Snipaste_2023-10-16_09-58-47.png](doc/Picutre.png)
 
@@ -66,22 +72,19 @@ Shadow analysis is performed based on the timestamp of the API call in the Centr
 
 3. Storing Results in MongoDB
 
-Upon generating the shadow matrix, the results are stored in MongoDB Atlas. This includes timestamps and the generated 2D arrays.
+After generating the shadow matrix, the visualization results are stored in MongoDB Atlas. 
+
+The data in the MongoDB includes timestamps and the serial of base64 encoded string of the visualization results.
 
 4. Visualization
 
 When the user call the API, they will get a json response.
 
-In the json response, users are able to extract the 2d array shadow matrix.
+In the json response, users are able to extract a serial of base64 encoded string of the visualization results.
 
-In the `demo.ipynb`, I visualize the shadow matrix effectively.
+In the `demo.ipynb`, I demonstrated how to do so.
 
 ![img.png](doc/img.png)
 
 ![img_1.png](doc/img_1.png)
 
-4. Validation
-
-When users call the API, they receive a JSON response. They can extract the shadow matrix from this response. 
-
-To provide a visual representation of the shadow matrix, the project includes a demo.ipynb notebook.
