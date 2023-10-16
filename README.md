@@ -1,12 +1,23 @@
-# AWS Demo
+# AWS Demo: A1 Shadow Analysis
 
-# API definition
+## Overview
 
-## How to trigger
+This project demonstrates a shadow analysis API hosted on AWS, utilizing a combination of technologies for analyzing shadows, storing results, and providing visualizations. The API allows users to trigger shadow analysis and obtain shadow matrices.
 
-1. Trigger in terminal:
-`curl https://iqf1uezcub.execute-api.us-east-1.amazonaws.com/stage/run_a1_shadow_analysis`
-1. Trigger in Python:
+## API Usage
+
+### How to Trigger
+
+You can trigger the API either via the terminal or using Python.
+
+#### Trigger in Terminal:
+
+```bash
+curl https://iqf1uezcub.execute-api.us-east-1.amazonaws.com/stage/run_a1_shadow_analysis
+```
+
+#### Trigger in Python:
+
 ```python
 import requests
 API_URL = 'https://iqf1uezcub.execute-api.us-east-1.amazonaws.com/stage/run_a1_shadow_analysis'
@@ -14,13 +25,16 @@ response = requests.get(API_URL)
 ```
 
 ## Request
-`GET https://iqf1uezcub.execute-api.us-east-1.amazonaws.com/stage/run_a1_shadow_analysis`
+
+Method: GET
+
+URL: https://iqf1uezcub.execute-api.us-east-1.amazonaws.com/stage/run_a1_shadow_analysis
+
+
 
 
 ## Response
-Response to the API call is a json file.
-
-Example Format: 
+The response to the API call is a JSON file in the following format:
 ```json
 {
   "Message": "Request was successful!",
@@ -37,21 +51,22 @@ Example Format:
 
 1. Containerization
 
-Containerize the Python application into a Docker image exposing port `56789`.
+The Python application is containerized into a Docker image exposed on port 56789. 
 
-The container could be found at Docoer Hub: https://hub.docker.com/r/zhenglinli9875/a1-shadow-analysis-python
+You can find the container on Docker Hub at zhenglinli9875/a1-shadow-analysis-python.
 
 2. Host on AWS
 
-The program is running on a EC2 instant as the API backend server.
+The program runs on an EC2 instance as the API backend server, ensuring scalability and reliability.
 
 2. Shadow Analysis
 
-Perform shadow analysis based on the timestamp of the API call in Central Timezone (CT), generate a shadow matrix.
+Shadow analysis is performed based on the timestamp of the API call in the Central Timezone (CT), generating a shadow matrix.
 
-3. Store the results in MongoDB
 
-After generation shadow matrix, we store the **timestamps** and generated **2d array** to the MongoDB Atlas.
+3. Storing Results in MongoDB
+
+Upon generating the shadow matrix, the results are stored in MongoDB Atlas. This includes timestamps and the generated 2D arrays.
 
 4. Visualization
 
@@ -67,5 +82,6 @@ In the `demo.ipynb`, I visualize the shadow matrix effectively.
 
 4. Validation
 
-In the `demo.ipynb`, I validate the successful execution of the above steps. It involves user requests
-for shadow analysis via the API and the visualization.
+When users call the API, they receive a JSON response. They can extract the shadow matrix from this response. 
+
+To provide a visual representation of the shadow matrix, the project includes a demo.ipynb notebook.
